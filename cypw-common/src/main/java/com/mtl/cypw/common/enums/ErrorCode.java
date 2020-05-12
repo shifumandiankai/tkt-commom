@@ -1,0 +1,156 @@
+package com.mtl.cypw.common.enums;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+/**
+ * @author Johnathon.Yuan
+ * @date 2019-11-13 16:39
+ */
+@Getter
+@AllArgsConstructor
+public enum ErrorCode {
+
+    /**
+     * common error code [10000-10099]
+     */
+    ERROR_COMMON(10000, "出错了"),
+    ERROR_COMMON_PARAMETER(10001, "参数错误"),
+    ERROR_COMMON_NOT_ENTERPRISE(10002, "缺少商户信息"),
+    ERROR_COMMON_AUTHORITY(10003, "没有访问权限"),
+    ERROR_COMMON_DATA_NOT_FOUND(10004, "未查询到相关数据"),
+    ERROR_COMMON_PAY_TYPE(10005, "错误的支付类型"),
+    ERROR_COMMON_UPLOAD_FILE(10006, "文件上传错误"),
+    ERROR_COMMON_VERIFY_CODE(10007, "验证码错误"),
+    ERROR_COMMON_SESSION_EXPIRE(10008, "登录信息失效，请从新登录"),
+    ERROR_COMMON_ENTERPRISE_CONFIG(10009, "商户配置错误"),
+    ERROR_COMMON_USER_NAME(10010, "用户名错误"),
+    ERROR_COMMON_USER_PASS(10011, "密码错误"),
+    ERROR_COMMON_USER_NOT_ENABLE(10012, "用户已失效"),
+    ERROR_COMMON_USER_NOT_EFFECTIVE_TIME(10013, "当前用户不在有效时间内"),
+    ERROR_COMMON_TOKEN(10014, "无效的TOKEN"),
+    ERROR_COMMON_MAC_ADDRESS(10015, "MAC地址匹配失败"),
+    ERROR_COMMON_REPEAT_LOGIN(10016, "用户已经登录过了"),
+    /**
+     * admin web error code [10100-10199]
+     */
+    ERROR_ADMIN_WEB(10100, "后台服务异常"),
+    /**
+     * gateway error code [10200-10299]
+     */
+    ERROR_GATEWAY(10200, "网关服务异常"),
+    /**
+     * order error code [10300-10399]
+     */
+    ERROR_ORDER(10300, "订单服务异常"),
+    ERROR_ORDER_INIT_DUPLICATED(10310, "您还有订单未支付"),
+    ERROR_ORDER_INIT_COMPLETENESS(10302, "订单信息不完善"),
+    ERROR_ORDER_INIT_DELIVERY(10303, "配送方式信息不完善"),
+    ERROR_ORDER_INIT_AMOUNT_CONSISTENT(10304, "订单金额校验失败"),
+    ERROR_ORDER_INIT_SHOW_STATUS(10305, "演出已停售或已下架"),
+    ERROR_ORDER_INIT_GOODS_STATUS(10306, "商品已停售或已下架"),
+    ERROR_ORDER_INIT_TICKET_STATUS(10307, "票档已停售或已下架"),
+    ERROR_ORDER_INIT_INVALID_COUPON_CODE(10308, "优惠券不可用"),
+    ERROR_ORDER_INIT_INVALID_EXCHANGE_COUPON_CODE(10309, "兑换券不可用"),
+    ERROR_ORDER_INIT_MULTI_COUPON_GROUP_DISCOUNT(10301, "订单不能使用多个优惠券哦"),
+    ERROR_ORDER_INIT_NOT_ENOUGH_INVENTORY(10311, "库存不足"),
+    ERROR_ORDER_INIT_RISK_LIMIT(10312, "您还不能下单哦"),
+    ERROR_ORDER_INIT_BUY_LIMIT(10313, "订单限购校验失败"),
+    ERROR_ORDER_INIT_TICKET_NUMS_OVER(10314, "购买数量超过上限"),
+
+    ERROR_ORDER_LOCK(10320, "预扣库存失败"),
+    ERROR_ORDER_LOCK_NOT_ENOUGH_INVENTORY(10321, "库存不足"),
+    ERROR_ORDER_LOCK_INVENTORY_FAILURE(10322, "库存锁定失败"),
+    ERROR_ORDER_LOCK_INVENTORY_OP_FAILURE(10323, "库存下单失败"),
+    ERROR_ORDER_LOCK_COUPON_CODE_FAILURE(10324, "锁定优惠券失败"),
+    ERROR_ORDER_LOCK_SEAT_CAN_NOT_LOCKED(10325, "座位锁定失败"),
+
+    ERROR_ORDER_TICKET(10330, "订单出票失败"),
+    ERROR_ORDER_TICKET_TP_FAILURE(10331, "第三方出票失败"),
+    ERROR_ORDER_TICKET_NOT_WAIT_MATCH(10332, "配票状态错误"),
+    ERROR_ORDER_TICKET_SEAT_INFO_ERROR(10333, "座位信息不匹配"),
+    ERROR_ORDER_TICKET_SEAT_STATUS_ERROR(10334, "座位不可售卖"),
+
+    ERROR_ORDER_CANCEL(10340, "订单取消失败"),
+    ERROR_ORDER_CANCEL_UNABlE_TO_DO(10341, "订单不能被取消"),
+    ERROR_ORDER_CANCEL_ALREADY_CANCELLED(10342, "订单已经被取消了"),
+    ERROR_ORDER_CANCEL_NOT_OWNED(10343, "只能取消自己的订单"),
+    ERROR_ORDER_CANCEL_ROLLBACK_INVENTORY_ERROR(10344, "回滚库存失败"),
+    ERROR_ORDER_CANCEL_ROLLBACK_COUPON_ERROR(10345, "回滚优惠券失败"),
+
+    ERROR_ORDER_REFUND(10350, "订单退款失败"),
+    ERROR_ORDER_REFUND_INCORRECT_ORDER_STATUS(10351, "订单状态不满足退款条件"),
+    ERROR_ORDER_REFUND_INCORRECT_ORDER_INFO(10352, "订单信息不一致"),
+    ERROR_ORDER_REFUND_AMOUNT_INCORRECT(10353, "退款金额不正确"),
+    ERROR_ORDER_REFUND_ROLLBACK_INVENTORY_ERROR(10354, "退款释放库存失败"),
+    ERROR_ORDER_REFUND_ROLLBACK_SEAT_STATUS_ERROR(10355, "退款释放座位状态失败"),
+
+    /**
+     * coupon error code [10400-10499]
+     */
+    ERROR_COUPON(10400, "优惠服务异常"),
+    ERROR_COUPON_RECEIVE_FINISHED(10401, "领完了"),
+    ERROR_COUPON_EXCHANGE_CODE(10402, "兑换码错误"),
+    ERROR_COUPON_EXCHANGE_USED(10403, "兑换码已使用"),
+    ERROR_COUPON_NOT_COUPON(10404, "没有找到兑换券或兑换券已过期"),
+    ERROR_COUPON_ALREADY_RECEIVE(10405, "领取过了"),
+    ERROR_COUPON_PARAMETER(10499, "参数错误"),
+    /**
+     * member error code [10500-10599]
+     */
+    ERROR_MEMBER(10500, "会员服务异常"),
+    ERROR_THIRD_PARTY_USER_PHONE(10501, "当前手机号与第三方用户不符"),
+    ERROR_NOT_SUPPORT_LOGIN_MODE(10502, "不支持的登录方式"),
+    ERROR_AUTO_LOGIN(10503, "自动登录失败"),
+    ERROR_AUTH_LOGIN_SIGN(10504, "授权登录验签失败"),
+    ERROR_MEMBER_PARAMETER(10599, "参数错误"),
+    /**
+     * mpm error code [10600-10699]
+     */
+    ERROR_MPM(10600, "权限服务异常"),
+    ERROR_MPM_PARAMETER(10699, "参数错误"),
+    /**
+     * pay error code [10700-10799]
+     */
+    ERROR_PAY(10700, "支付服务异常"),
+    ERROR_PAY_CONFIG(10701, "商户支付配置错误"),
+    ERROR_PAY_TYPE(10702, "不支持的支付类型"),
+    ERROR_PAY_SIGN(10703, "支付签名异常"),
+    ERROR_PAY_FAIL(10704, "支付失败"),
+    ERROR_PAY_PARAMETER(10799, "支付数据错误"),
+    /**
+     * show error code [10800-10899]
+     */
+    ERROR_SHOW(10800, "演出服务异常"),
+    ERROR_SHOW_RESERVE_SAVE_FAILED(10850, "预留设置失败"),
+    ERROR_SHOW_RESERVE_CANCEL_FAILED(10851, "取消预留失败"),
+    ERROR_SHOW_RESERVE_SEAT_FAILED(10852, "预留座位设置错误"),
+    ERROR_SHOW_RESERVE_SEAT_RELEASE_FAILED(10853, "释放预留座位出错了"),
+    ERROR_SHOW_RESERVE_SEAT_TICKET_FAILED(10854, "预留座位出票失败"),
+    ERROR_SHOW_PARAMETER(10899, "参数错误"),
+    /**
+     * ticket error code [10900-10999]
+     */
+    ERROR_TICKET(10900, "票证服务异常"),
+    ERROR_TICKET_BASE_NOT_TICKETED(10901, "该订单还未出票"),
+    ERROR_TICKET_BASE_SHOW_CLOSED(10902, "该演出已失效"),
+    ERROR_TICKET_CHECK_CODE_FAILED(10911, "该电子票不存在"),
+    ERROR_TICKET_CHECK_MOBILE_FAILED(10912, "该手机号没有对应的订单"),
+    ERROR_TICKET_CHECK_PERMISSION_DENIED(10913, "权限验证失败"),
+    ERROR_TICKET_CHECK_NOT_SUPPORTED(10914, "不支持的验票方式"),
+    ERROR_TICKET_CHECK_DATA_FAILED(10915, "此票不在检票数据范围内"),
+    ERROR_TICKET_CHECK_REPEATED(10916, "该电子票已入场"),
+
+    ERROR_TICKET_FETCH_CODE_FAILED(10921, "暂无可匹配的订单"),
+    ERROR_TICKET_FETCH_ID_CARD_FAILED(10922, "暂无可匹配的订单"),
+    ERROR_TICKET_FETCH_PERMISSION_DENIED(10923, "权限验证失败"),
+    ERROR_TICKET_FETCH_NOT_SUPPORTED(10924, "不支持的取货方式"),
+    ERROR_TICKET_FETCH_DATA_FAILED(10925, "取票锁定中"),
+    ERROR_TICKET_FETCH_REPEATED(10926, "已取票"),
+    ERROR_TICKET_FETCH_HAVE_BEEN_REFUND(10928, "已退款");
+
+    private int code;
+
+    private String msg;
+
+}
